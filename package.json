@@ -4,9 +4,15 @@
     "dev": "bun run --hot src/index.ts"
   },
   "dependencies": {
-    "hono": "^4.6.7"
+    "@microsoft/microsoft-graph-client": "^3.0.7",
+    "better-sqlite3": "^11.5.0",
+    "dotenv": "^16.4.5",
+    "hono": "^4.6.7",
+    "isomorphic-fetch": "^3.0.0",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
     "@types/bun": "latest"
   }
 }
