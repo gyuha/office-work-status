@@ -1,10 +1,6 @@
 import { layout } from './layout';
+import { Event } from '../db';
 
-interface Event {
-    subject: string;
-    start_time: string;
-    end_time: string;
-}
 
 export const renderHome = (events: Event[], today: string) => {
     const content = `
@@ -37,12 +33,12 @@ export const renderHome = (events: Event[], today: string) => {
                             <div class="border-l-4 border-blue-500 pl-4 py-2">
                                 <div class="font-medium text-gray-800">${event.subject}</div>
                                 <div class="text-sm text-gray-500 mt-1">
-                                    ${new Date(event.start_time).toLocaleTimeString('ko-KR', {
+                                    ${new Date(event.startTime).toLocaleTimeString('ko-KR', {
                                         hour: '2-digit',
                                         minute: '2-digit',
                                         hour12: true
                                     })} - 
-                                    ${new Date(event.end_time).toLocaleTimeString('ko-KR', {
+                                    ${new Date(event.endTime).toLocaleTimeString('ko-KR', {
                                         hour: '2-digit',
                                         minute: '2-digit',
                                         hour12: true

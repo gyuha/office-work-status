@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import { serveStatic } from 'hono/bun'
 import { CalendarService } from './calendar';
-import { getTodayEvents, insertEvent } from './db';
+import { getTodayEvents, insertEvent, Event } from './db';
 import { renderHome } from './views/home';
 import config from './config';
 
@@ -45,6 +45,7 @@ async function syncCalendar() {
     try {
         const calendarService = new CalendarService(config.msAccessToken);
         const events = await calendarService.getCalendarEvents();
+        console.log('📢[index.ts:48]: events: ', events);
         
         for (const event of events) {
             await insertEvent({
