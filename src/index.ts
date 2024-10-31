@@ -7,8 +7,7 @@ import config from './config';
 
 const app = new Hono();
 
-// Serve static files
-app.use('/static/*', serveStatic({ root: './public' }));
+app.use('*', serveStatic({ root: './public' }));
 
 // API endpoints
 app.get('/api/status', async (c) => {
